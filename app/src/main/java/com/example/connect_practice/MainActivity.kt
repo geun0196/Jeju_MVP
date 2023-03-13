@@ -23,16 +23,17 @@ class MainActivity : AppCompatActivity() {
         val text_latitude =findViewById<TextView>(R.id.latitude)
         val text_longitude=findViewById<TextView>(R.id.longitude)
         //-----------------------------------------------------------------------
-        //xloc 값이 변경되면 xloc 값을 읽어서 읽어서 textview에 그리는 부분
+        //data 값이 변경되면 data 값을 읽어서 읽어서 textview에 그리는 부분
         //-----------------------------------------------------------------------
         val adocRef = fbdb.collection("JEJU").document("1")
-
-        val startPoint = GeoPoint(37.5665, 126.9780);
 
         adocRef.addSnapshotListener(EventListener<DocumentSnapshot> { snapshot, e ->
             if (snapshot != null && snapshot.exists()) {
                 text_height.text = snapshot.data!!["height"].toString()
                 text_weight.text = snapshot.data!!["weight"].toString()
+                var startPoint = snapshot.data!!["gps"] as GeoPoint
+                text_latitude.text = startPoint.latitude.toString()
+                text_longitude.text = startPoint.longitude.toString()
             }
         })
 
