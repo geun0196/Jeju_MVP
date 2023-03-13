@@ -37,9 +37,9 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:292746785326:android:efade6a794a31fab7e65bf",
+        "mobilesdk_app_id": "1:292746785326:android:5051c03bd76c9a907e65bf",
         "android_client_info": {
-          "package_name": "com.example.jeju_mvp"
+          "package_name": "com.example.jeju"
         }
       },
       "oauth_client": [
