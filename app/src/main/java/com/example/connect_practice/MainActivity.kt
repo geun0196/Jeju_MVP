@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
 
         val cartnum_textView=findViewById<TextView>(R.id.cartnum_textView)
 
-        val text_height=findViewById<TextView>(R.id.height)
         val text_weight=findViewById<TextView>(R.id.weight)
         val text_latitude =findViewById<TextView>(R.id.latitude)
         val text_longitude=findViewById<TextView>(R.id.longitude)
@@ -41,7 +40,6 @@ class MainActivity : AppCompatActivity() {
 
         adocRef.addSnapshotListener(EventListener<DocumentSnapshot> { snapshot, e ->
             if (snapshot != null && snapshot.exists()) {
-                text_height.text = snapshot.data!!["height"].toString()
                 text_weight.text = snapshot.data!!["weight"].toString()
                 startPoint = snapshot.data!!["gps"]as GeoPoint
                 text_latitude.text = startPoint.latitude.toString()
